@@ -1,0 +1,89 @@
+:root {
+  --colour-background: #eef3d2;
+  --colour-dark-red: #c21010;
+  --colour-link: #8910c2;
+  --colour-link-visited: #631389;
+  --colour-link-hover: #c21010;
+  --colour-link-active: rgba(194, 16, 16, 0.5);
+  --base-font-family: Arial, Helvetica, sans-serif;
+  --base-font-size: 1.25em;
+  --base-text-colour: #160202;
+}
+
+body {
+  background: var(--colour-background);
+  text-align: center;
+  font-family: var(--base-font-family);
+  font-size: var(--base-font-size);
+  width: 80vw;
+  margin: 0 auto;
+}
+
+/* text */
+
+h1, h2 {
+  font-family: 'Brush Script MT', cursive;
+  color: var(--colour-dark-red);
+}
+
+p, ul, ol {
+  color: var(--base-text-colour);
+  line-height: 1.5;
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-top: 2em;
+}
+
+/* lists */
+
+li {
+  margin: 0.8em 0;
+}
+
+/* remove bullet and fix centring problem that results */
+ul, ol {
+  list-style: none;
+  margin: 2em 0 2em -40px;
+}
+
+/* link states */
+a {
+  color: var(--colour-link);
+}
+
+a:visited {
+  color: var(--colour-link-visited);
+}
+
+a:hover {
+  color: var(--colour-link-hover);
+}
+
+a:active {
+  color: var(--colour-link-active);
+}
+
+/* pictures */
+
+/* phones */
+
+  img {
+    border-radius: 2rem;
+      box-shadow: 0.2em 0.2em 1em 0.1em rgba(194, 16, 16, 0.5);
+      margin-bottom: 2em;
+      width: 100%;
+      height: auto;
+    }
+
+/* tablets and up */    
+@media only screen and (min-width: 32rem) {
+  img {
+    width: 500px;
+    height: auto;
+  }
