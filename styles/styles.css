@@ -1,6 +1,7 @@
 :root {
   --colour-background: #eef3d2;
   --colour-dark-red: #c21010;
+  --colour-white: #fff;
   --colour-link: #8910c2;
   --colour-link-visited: #631389;
   --colour-link-hover: #c21010;
@@ -8,6 +9,13 @@
   --base-font-family: Arial, Helvetica, sans-serif;
   --base-font-size: 1.25em;
   --base-text-colour: #160202;
+  --base-spacing-unit: 1rem;
+  --base-box-shadow: .2em .2em .5em .2em var(--nav-background);
+  --nav-background: var(--colour-dark-red);
+  --nav-items: var(--colour-background);
+  --nav-items-hover: var(--colour-white);
+  --nav-items-hover-background: rgba(255, 255, 255, 0.4);
+  --nav-items-active: rgba(255, 255, 255, 0.7);
 }
 
 body {
@@ -19,11 +27,30 @@ body {
   margin: 0 auto;
 }
 
+
+@media only screen and (min-width: 30rem) {
+  /* home page background image tablets and up */
+  body.home-page {
+      background: var(--colour-background) url('../recipes/images/beluga-lentil-curry-1500.jpg') no-repeat right top;
+      background-size: cover;
+  }
+}
+
+@media only screen and (max-width: 30rem) {
+.home-page {
+  background: var(--colour-dark-red);
+}
+}
+
+/* wider content area on home page to accommodate nav */
+.home-page {
+  width: auto;
+}
+
 /* text */
 
 h1, h2 {
   font-family: 'Brush Script MT', cursive;
-  color: var(--colour-dark-red);
 }
 
 p, ul, ol {
@@ -33,11 +60,18 @@ p, ul, ol {
 
 h1 {
   font-size: 3.5rem;
+  color: var(--colour-dark-red);
+}
+
+/* here it's in the nav bar */
+.home-page h1 {
+  color: var(--nav-items);
 }
 
 h2 {
   font-size: 2.5rem;
   margin-top: 2em;
+  color: var(--colour-dark-red);
 }
 
 /* lists */
@@ -67,6 +101,73 @@ a:hover {
 
 a:active {
   color: var(--colour-link-active);
+}
+
+/* nav */
+
+/* mobile first */
+  .nav {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .nav ul {
+    display: flex;
+    flex-direction: column;
+    padding-top: 0.5rem;
+  }
+
+  .nav li {
+    padding: 0.5rem 0;
+  }
+
+  .nav li:hover {
+    background: var(--nav-items-hover-background);
+  }
+
+  .nav li a {
+    color: var(--nav-items);
+    text-decoration: none;
+    font-weight: 800;
+    
+  }
+
+  .nav li a:visited {
+    color: var(--nav-items);
+  }
+
+  .nav li a:hover {
+    color: var(--nav-items-hover);
+  }
+
+  .nav li a:active {
+    color: var(--nav-items-active);
+  }
+
+
+/* tablets and up */
+@media only screen and (min-width: 30rem) {
+  .nav {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: calc(var(--base-spacing-unit) * 5);
+    box-shadow: var(--base-box-shadow);
+    padding: var(--base-spacing-unit);
+    background-color: var(--nav-background);
+  }
+
+  .nav ul {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .nav li {
+  margin: 0;
+  padding: var(--base-spacing-unit) calc(var(--base-spacing-unit) * 2);
+  }
 }
 
 /* pictures */
